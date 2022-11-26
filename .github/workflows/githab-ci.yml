@@ -15,7 +15,7 @@ jobs:
       
       
   deploy:
-    if: ${{ github.ref_name == 'production' }}
+    if: ${{ github.ref_name == 'main' }}
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
