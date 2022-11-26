@@ -1,5 +1,5 @@
 def run_myapp():
-    print("It works!")
+    print("It works, Yes!")
     return "It works"
 
 
