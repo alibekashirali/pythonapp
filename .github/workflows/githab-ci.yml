@@ -13,12 +13,16 @@ jobs:
           python-version: '3.9' 
       - run: python app.py
       
+      - name: Run tests
+        run: unittest
+      
   deploy:
+    if: ${{ github.ref_name == 'production' }}
     name: Deploy
     needs: build
-    environment: production
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/production'
+    environment: production
+    concurrency: production
     steps:
       # Runs a single command using the runners shell
       - name: Run a one-line script
