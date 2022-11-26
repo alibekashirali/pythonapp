@@ -6,9 +6,18 @@ on:
       - production
 
 jobs:
-  prod-check:
+  build:
       runs-on: ubuntu-latest
-      environment: production
+      
       steps:
+        - uses: actions/checkout@v3
+        
+        - name: Run
+          run: echo Hello, world!
+      
+  deployment:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
         - name: deploy
-          run: echo "devops_mid"
+          run: echo "Hello, world"
