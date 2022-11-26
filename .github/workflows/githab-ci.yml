@@ -12,3 +12,14 @@ jobs:
         with:
           python-version: '3.9' 
       - run: python app.py
+      
+  deploy:
+    name: Deploy
+    needs: build
+    environment: production
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/production'
+    steps:
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
